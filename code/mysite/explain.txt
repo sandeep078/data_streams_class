@@ -1,0 +1,20 @@
+1. Collection from sensors <-- get data from the real world
+
+2. Forwarder <-- get data from sensor and send to cloud
+
+S1, S2, S3 ---> F1
+
+S4, S5, S6 ---> F2
+
+(F1, F2, F3 ---> Stream ST1)
+
+ST1 ---> SH1
+
+SH1 ---> Web App for examination and visualization
+
+SH1 ---> Controller C1
+
+C1 ---> F1, F2...
+
+F1 ---> Actuators A1, A2, A3...
+

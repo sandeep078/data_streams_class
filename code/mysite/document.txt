@@ -1,0 +1,27 @@
+To store data:
+
+http://<url>/stream/store/<name>#key1=value1&key2=value2
+
+To query data:
+
+http://<url>/stream/query/<name>#key1=value1&key2=value2
+
+Weather Stream Contents
+
+name (from stream) -- "weather1"
+
+temp=34  <-- degrees C
+
+humidity=67  <-- percent humidity
+
+city=Los_Angeles  <-- city (underscores OK)
+
+state=CA  <-- use two letter abbreviation in upper case
+
+user=gdelozie  <-- use your kent state email id (omit the @kent.edu part!)
+
+lat=01.23   <-- latitude in float
+lon=01.23   <-- longitude in float
+
+key="skdjfhskjhre"
+
