@@ -13,6 +13,18 @@ def get_example():
    ]
    return template('make_table.tpl', rows=rows)
 
+@route('/chart')
+def get_chart():
+    pizzas = [
+          {'type':'Mushrooms', 'count':3},
+          {'type':'Onions', 'count':1},
+          {'type':'Olives', 'count':1},
+          {'type':'Zucchini', 'count':5},
+          {'type':'Pepperoni', 'count':2}
+    ]
+    return template("example_chart.tpl", rows=pizzas)
+    #return template('make_dict_table.tpl', header=pizzas[0].keys(), rows=pizzas)
+
 @route('/')
 def get_index():
     stream="beta"
