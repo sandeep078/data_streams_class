@@ -1,5 +1,6 @@
 from bottle import route, run, template
 import requests
+import time
 
 @route('/example')
 def get_example():
@@ -48,6 +49,30 @@ def get_chart():
     ]
     data = [ {'year':x, 'sales':y, 'expenses':z} for x,y,z in data ]
     return template("line_chart.tpl", rows=data)
+
+
+API_KEY = "10954d4150659a315d31faf812ecc62e"
+
+weather_url = "http://api.openweathermap.org/data/2.5/weather?q={}&APPID={}"
+
+def get_weather_data(location):
+    #response = requests.get("http://api.openweathermap.org/data/2.5/weather?q=Akron,OH&APPID=10954d4150659a315d31faf812ecc62e") 
+    response = requests.get(weather_url.format(location, API_KEY)) 
+    assert response.status_code == 200
+    data=response.json()
+    print(response.json())
+    time = data['dt']
+    temperature = data['main']['temp'] - 270
+    humidity = data['main']['humidity']
+    return time, temperature, humidity
+
+import weather_gov
+
+@route('/kent_history')
+def get_kent_weather():
+    data = weather_gov.get_weather_table(44240)
+    data = [{'time':item['epoch'], 'temp':item['temp'], 'humidity':item['humidity']} for item in data]
+    return template("weather_chart.tpl", rows=data)
 
 @route('/weather')
 def get_chart():
