@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Processing demo page</title>
+<script src="processing.min.js"></script>
+</head>
+<body>
+<script type="application/processing" data-processing-target="pjs">
+
+int i = 0;
+
+void setup() {
+  size(600, 600);
+  background(100);
+  stroke(255);
+  ellipse(50, 50, 25, 25);
+  println('hello web!');
+  noLoop();
+}
+
+void draw() {
+    ellipse(75+i,75,25,25+i);
+    i = i + 1;
+}
+
+</script>
+<canvas id="pjs"> </canvas>
+</body>
+</html>
